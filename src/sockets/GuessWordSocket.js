@@ -16,9 +16,9 @@ const GuessWordSocket = (socket, io) => {
         io.to(roomId).emit('onUserSendMessage', messageText)
     })
 
-    socket.on('surrender', (user, roomId) => {
-        console.log(`SOCKET player surrender: ${user} ${roomId}`)
-        io.to(roomId).emit('userSurrendered', user)
+    socket.on('leaveGame', (userRole, roomId) => {
+        console.log(`SOCKET player surrender: ${userRole} ${roomId}`)
+        io.to(roomId).emit('onUserLeaveGame', userRole)
     })
 }
 
